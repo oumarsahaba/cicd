@@ -1,9 +1,8 @@
 package sn.ept.git.seminaire.cicd.data;
 
-import sn.ept.git.seminaire.cicd.dto.SiteDTO;
 import sn.ept.git.seminaire.cicd.dto.vm.SiteVM;
 
-public class SiteDTOVMTestData extends TestData {
+public class SiteVMTestData extends TestData {
 
     public static SiteVM defaultVM() {
         return SiteVM

@@ -2,9 +2,9 @@ package sn.ept.git.seminaire.cicd.data;
 
 import sn.ept.git.seminaire.cicd.dto.vm.ExerciceVM;
 
-public class ExerciceDTOVMTestData extends TestData {
+public class ExerciceVMTestData extends TestData {
 
-    public  static ExerciceVM defaultDTO(){
+    public  static ExerciceVM defaultVM(){
         return ExerciceVM
                 .builder()
                 .id(Default.id)
@@ -21,7 +21,7 @@ public class ExerciceDTOVMTestData extends TestData {
                 .build();
     }
 
-    public  static ExerciceVM updateDTO(){
+    public  static ExerciceVM updateVM(){
         return ExerciceVM
                 .builder()
                 .id(Default.id)
