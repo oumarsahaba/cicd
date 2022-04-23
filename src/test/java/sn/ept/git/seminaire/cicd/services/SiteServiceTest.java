@@ -1,4 +1,4 @@
 package sn.ept.git.seminaire.cicd.services;
 
-public class SiteServiceTest {
+public class SiteServiceTest extends ServiceBaseTest{
 }

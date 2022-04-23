@@ -11,6 +11,7 @@
     <groupId>sn.ept.git.seminaire.cicd</groupId>
     <artifactId>tracking</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>tracking</name>
     <description>Projet de tracking d'evenements</description>
 
