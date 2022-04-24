@@ -56,7 +56,7 @@ pipeline {
                         timeout(time: 0.2, unit: 'HOURS')
                     }
                     when {
-                        branch 'release'
+                        branch 'develop'
                     }
                     steps {
                         echo 'si le build s\'effectue sur la banche release'
