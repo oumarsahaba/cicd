@@ -27,7 +27,7 @@ pipeline {
                     script {
                     
                        
-                        sh "mvn install"
+                        bat "mvn install"
                         // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
                         pom = readMavenPom file: "pom.xml";
                         // Find built artifact under target folder
@@ -79,7 +79,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'testing..'
-                sh 'mvn test'
+                bat 'mvn test'
             }
 
 
@@ -88,7 +88,7 @@ pipeline {
         stage('Quality gate') {
             steps {
                 echo 'analyse sonar..'
-                sh 'mvn sonar:sonar -Dsonar.login=ea0ff3152d936b3f2f760068834bdd7bbc323ebc'
+                bat 'mvn sonar:sonar -Dsonar.login=ea0ff3152d936b3f2f760068834bdd7bbc323ebc'
             }
         }
         stage('Check Quality gate') {
@@ -106,7 +106,7 @@ pipeline {
             }
             steps {
                 echo 'si le build s\'effectue sur la banche main'
-                sh 'mvn deploy'
+                bat 'mvn deploy'
             }
     }
          stage('Deploy REC') {
@@ -116,7 +116,7 @@ pipeline {
                     }
                     steps {
                         echo 'si le build s\'effectue sur la banche release'
-                        sh 'mvn deploy'
+                        bat 'mvn deploy'
                     }
             }
          stage('Test deploy dev'){
@@ -139,7 +139,7 @@ pipeline {
         }}
          post {
             always{
-                    sh 'mvn clean'
+                    bat 'mvn clean'
                     echo'envoyer notification'
             }
             success{
