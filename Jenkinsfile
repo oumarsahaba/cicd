@@ -11,7 +11,7 @@ pipeline {
             parallel{
         stage('Install on nexus') {
             when{
-                branch 'release'
+                branch 'develop'
             }
             steps {
                     echo 'initialise..'
