@@ -69,7 +69,7 @@ pipeline {
                         echo 'tester si le déploiment dans dev s\'est bien passé'
                     }
          }
-         stage('Test deploy dev'){
+         stage('Test deploy rec'){
                     when {
                         branch 'release'
                     }
