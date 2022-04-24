@@ -22,11 +22,11 @@ pipeline {
             
             steps {
                     echo 'initialise..'
-                    bat 'mvn clean install'
+                    
 
                     script {
                     {
-                        bat "pwd"
+                       
                         bat "mvn install"
                         // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
                         pom = readMavenPom file: "pom.xml";
