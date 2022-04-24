@@ -30,7 +30,7 @@ pipeline {
         stage('Quality gate') {
             steps {
                 echo 'analyse sonar..'
-                sh 'mvn sonar:sonar -Dsonar.login=myAuthenticationToken'
+                sh 'mvn sonar:sonar -Dsonar.login=ea0ff3152d936b3f2f760068834bdd7bbc323ebc'
             }
         }
         stage('Check Quality gate') {
