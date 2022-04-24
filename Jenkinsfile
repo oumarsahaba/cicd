@@ -19,6 +19,17 @@ pipeline {
 
 
     stages {
+
+        stage('Build') {
+            steps {
+                echo 'building..'
+                bat 'mvn clean package'
+            }
+
+
+
+       }
+        
          stage('Install on nexus') {
             
             steps {
