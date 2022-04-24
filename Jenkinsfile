@@ -7,21 +7,22 @@ pipeline {
     }
 
     stages {
-        stage('Paralel'){
-            parallel{
-        stage('Install on nexus') {
+         stage('Install on nexus') {
             when{
                 branch 'release'
             }
             steps {
                     echo 'initialise..'
-                    sh 'mvn clean install'
+                    bat 'mvn clean install'
                 }
         }
+        stage('Paralel'){
+            parallel{
+       
         stage('Test') {
             steps {
                 echo 'testing..'
-                sh 'mvn test'
+                bat 'mvn test'
             }
 
 
@@ -30,7 +31,7 @@ pipeline {
         stage('Quality gate') {
             steps {
                 echo 'analyse sonar..'
-                sh 'mvn sonar:sonar -Dsonar.login=ea0ff3152d936b3f2f760068834bdd7bbc323ebc'
+                bat 'mvn sonar:sonar -Dsonar.login=ea0ff3152d936b3f2f760068834bdd7bbc323ebc'
             }
         }
         stage('Check Quality gate') {
@@ -52,11 +53,9 @@ pipeline {
             }
     }
          stage('Deploy REC') {
-                    options {
-                        timeout(time: 0.2, unit: 'HOURS')
-                    }
+                    
                     when {
-                        branch 'release'
+                        branch 'develop'
                     }
                     steps {
                         echo 'si le build s\'effectue sur la banche release'
@@ -65,7 +64,7 @@ pipeline {
             }
          stage('Test deploy dev'){
                     when {
-                        branch 'dev'
+                        branch 'develop'
                     }
                     steps{
                         echo 'tester si le déploiment dans dev s\'est bien passé'
@@ -83,7 +82,7 @@ pipeline {
         }}
          post {
             always{
-                    sh 'mvn clean'
+                    bat 'mvn clean'
                     echo'envoyer notification'
             }
             success{
