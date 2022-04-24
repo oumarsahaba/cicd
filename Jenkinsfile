@@ -52,9 +52,7 @@ pipeline {
             }
     }
          stage('Deploy REC') {
-                    options {
-                        timeout(time: 0.2, unit: 'HOURS')
-                    }
+                   
                     when {
                         branch 'develop'
                     }
