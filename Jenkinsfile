@@ -25,18 +25,16 @@ pipeline {
                 echo 'building..'
                 bat 'mvn clean package'
             }
-        }
 
+       }
 
-        stage('Test') {
+       stage('Test') {
             steps {
                 echo 'testing..'
                 bat 'mvn test'
             }
-        }
 
-
-       
+       }
         
          stage('Install on nexus') {
             
@@ -97,10 +95,6 @@ pipeline {
             parallel{
        
         
-
-
-
-       }
         stage('Quality gate') {
             steps {
                 echo 'analyse sonar..'
