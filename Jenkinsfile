@@ -7,6 +7,8 @@ pipeline {
     }
 
     stages {
+        stage('Paralel'){
+            parallel{
         stage('Install on nexus') {
             when{
                 branch 'release'
@@ -78,6 +80,7 @@ pipeline {
                     }
                   }
     }
+        }}
          post {
             always{
                     sh 'mvn clean'
