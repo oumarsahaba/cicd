@@ -7,6 +7,7 @@ pipeline {
     }
 
     environment {
+        PATH = "C:\\WINDOWS\\SYSTEM32"
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "localhost:8081"
