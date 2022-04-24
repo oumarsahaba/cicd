@@ -77,6 +77,7 @@ pipeline {
                         echo 'tester si le déploiment dans release s\'est bien passé'
                     }
                   }
+    }
          post {
             always{
                     sh 'mvn clean'
@@ -99,5 +100,5 @@ pipeline {
 
 
          }
-}
+
 }
