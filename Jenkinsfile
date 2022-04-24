@@ -80,7 +80,7 @@ pipeline {
         }}
          post {
             always{
-                    bat 'mvn clean'
+                    sh 'mvn clean'
                     echo'envoyer notification'
             }
             success{
