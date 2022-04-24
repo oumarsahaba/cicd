@@ -116,7 +116,7 @@ pipeline {
                     }
                     steps {
                         echo 'si le build s\'effectue sur la banche release'
-                        bat 'mvn deploy'
+                        sh 'mvn deploy'
                     }
             }
          stage('Test deploy dev'){
@@ -139,7 +139,7 @@ pipeline {
         }}
          post {
             always{
-                    bat 'mvn clean'
+                    sh 'mvn clean'
                     echo'envoyer notification'
             }
             success{
