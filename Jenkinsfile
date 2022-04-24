@@ -21,7 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'testing..'
-                sh 'mvn test'
+                bat 'mvn test'
             }
 
 
@@ -30,7 +30,7 @@ pipeline {
         stage('Quality gate') {
             steps {
                 echo 'analyse sonar..'
-                sh 'mvn sonar:sonar -Dsonar.login=myAuthenticationToken'
+                bat 'mvn sonar:sonar -Dsonar.login=myAuthenticationToken'
             }
         }
         stage('Check Quality gate') {
@@ -48,7 +48,7 @@ pipeline {
             }
             steps {
                 echo 'si le build s\'effectue sur la banche main'
-                sh 'mvn deploy'
+                bat 'mvn deploy'
             }
     }
          stage('Deploy REC') {
@@ -60,7 +60,7 @@ pipeline {
                     }
                     steps {
                         echo 'si le build s\'effectue sur la banche release'
-                        sh 'mvn deploy'
+                        bat 'mvn deploy'
                     }
             }
          stage('Test deploy dev'){
@@ -84,6 +84,7 @@ pipeline {
          post {
             always{
                     echo'envoyer notification'
+                bat 'mvn clean'
             }
             success{
                     echo 'envoyer notification'
