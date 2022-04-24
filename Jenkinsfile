@@ -7,8 +7,6 @@ pipeline {
     }
 
     stages {
-        stage('Paralel'){
-            parallel{
         stage('Install on nexus') {
             when{
                 branch 'develop'
@@ -18,6 +16,9 @@ pipeline {
                     bat 'mvn clean install -DskipTests  '
                 }
         }
+        stage('Paralel'){
+            parallel{
+        
         stage('Test') {
             steps {
                 echo 'testing..'
