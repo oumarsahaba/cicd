@@ -8,9 +8,7 @@ pipeline {
 
     stages {
          stage('Install on nexus') {
-            when{
-                branch 'develop'
-            }
+            
             steps {
                     echo 'initialise..'
                     bat 'mvn clean install'
