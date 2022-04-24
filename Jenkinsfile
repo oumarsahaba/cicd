@@ -83,7 +83,6 @@ pipeline {
         }}
          post {
             always{
-                    sh 'mvn clean'
                     echo'envoyer notification'
             }
             success{
