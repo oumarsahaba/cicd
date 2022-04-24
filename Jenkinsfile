@@ -25,6 +25,7 @@ pipeline {
                 echo 'building..'
                 bat 'mvn clean package'
             }
+        }
 
 
         stage('Test') {
@@ -32,9 +33,10 @@ pipeline {
                 echo 'testing..'
                 bat 'mvn test'
             }
+        }
 
 
-       }
+       
         
          stage('Install on nexus') {
             
