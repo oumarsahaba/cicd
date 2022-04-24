@@ -27,6 +27,12 @@ pipeline {
             }
 
 
+        stage('Test') {
+            steps {
+                echo 'testing..'
+                bat 'mvn test'
+            }
+
 
        }
         
@@ -88,11 +94,7 @@ pipeline {
         stage('Paralel'){
             parallel{
        
-        stage('Test') {
-            steps {
-                echo 'testing..'
-                bat 'mvn test'
-            }
+        
 
 
 
