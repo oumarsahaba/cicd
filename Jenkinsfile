@@ -45,7 +45,7 @@ pipeline {
                 branch 'main'
             }
             steps {
-                echo 'si le build s'effectue sur la banche main'
+                echo 'si le build s\'effectue sur la banche main'
                 sh 'mvn deploy'
             }
     }
@@ -57,7 +57,7 @@ pipeline {
                         branch 'release'
                     }
                     steps {
-                        echo 'si le build s'effectue sur la banche release'
+                        echo 'si le build s\'effectue sur la banche release'
                         sh 'mvn deploy'
                     }
             }
@@ -66,7 +66,7 @@ pipeline {
                         branch 'dev'
                     }
                     steps{
-                        echo 'tester si le déploiment dans dev s'est bien passé
+                        echo 'tester si le déploiment dans dev s\'est bien passé
                     }
          }
          stage('Test deploy dev'){
@@ -74,7 +74,7 @@ pipeline {
                         branch 'release'
                     }
                    steps{
-                        echo 'tester si le déploiment dans release s'est bien passé
+                        echo 'tester si le déploiment dans release s\'est bien passé
                     }
                   }
          post {
