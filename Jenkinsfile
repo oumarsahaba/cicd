@@ -11,7 +11,7 @@ pipeline {
             
             steps {
                     echo 'initialise..'
-                    sh 'mvn clean install'
+                    bat 'mvn clean install'
                 }
         }
         stage('Paralel'){
@@ -47,7 +47,7 @@ pipeline {
             }
             steps {
                 echo 'si le build s\'effectue sur la banche main'
-                sh 'mvn deploy'
+                bat 'mvn deploy'
             }
     }
          stage('Deploy REC') {
@@ -57,7 +57,7 @@ pipeline {
                     }
                     steps {
                         echo 'si le build s\'effectue sur la banche release'
-                        sh 'mvn deploy'
+                        bat 'mvn deploy'
                     }
             }
          stage('Test deploy dev'){
@@ -80,7 +80,7 @@ pipeline {
         }}
          post {
             always{
-                    sh 'mvn clean'
+                    bat 'mvn clean'
                     echo'envoyer notification'
             }
             success{
