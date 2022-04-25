@@ -23,7 +23,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building..'
-                bat 'mvn clean package'
+                bat 'mvn clean package -DskipTests'
             }
 
        }
@@ -52,7 +52,13 @@ pipeline {
                         file: './target/tracking.war',
                         type: 'war']],
 
-                        credentialsId: '', groupId: 'sn.ept.git.seminaire.cicd', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://localhost:8081/repository/maven-releases/', version: '0.0.1'
+                        credentialsId: '',
+                        groupId: 'sn.ept.git.seminaire.cicd',
+                        nexusUrl: 'localhost:8081/',
+                        nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        repository: 'repository/maven-releases',
+                        version: '0.0.1'
 
                 }
                 }
