@@ -84,7 +84,7 @@ pipeline {
             always{
                     echo'envoyer notification'
                 bat 'mvn clean'
-                            emailext ,body: 'A Test EMail', subject: 'Test', to: 'sahabandiaye@gmail.com'
+                            emailext body: 'A Test EMail', subject: 'Test', to: 'sahabandiaye@gmail.com'
 
             }
             success{
