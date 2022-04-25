@@ -45,11 +45,11 @@ pipeline {
                     script {
                     
                        
-                        bat "mvn install -DskipTests"
+                        bat "mvn package -DskipTests"
                        nexusArtifactUploader artifacts:[[
                         artifactId: 'tracking',
                         classifier: '',
-                        file: 'target/tracking-0.0.1.war',
+                        file: 'target/*.war',
                         type: 'war']],
 
                         credentialsId: '', groupId: 'sn.ept.git.seminaire.cicd', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://localhost:8081/repository/maven-releases/', version: '0.0.1'
