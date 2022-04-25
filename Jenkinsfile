@@ -158,20 +158,20 @@ pipeline {
          post {
             always{
                     bat 'mvn clean'
-                    emailext   attachLog:true body: 'Votre pipiline du projet a été lancé', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
+                    emailext   attachLog:true, body: 'Votre pipiline du projet a été lancé', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
             success{
-                    emailext   attachLog:true body: 'Build success', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
+                    emailext   attachLog:true ,body: 'Build success', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
             changed{
-                    emailext   attachLog:true body: 'Build changed', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
+                    emailext   attachLog:true, body: 'Build changed', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
 
             unstable{
-                    emailext   attachLog:true body: 'Unstable build', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
+                    emailext   attachLog:true, body: 'Unstable build', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
             failure{
-                    emailext   attachLog:true body: 'Build failed', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
+                    emailext   attachLog:true, body: 'Build failed', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
 
 
