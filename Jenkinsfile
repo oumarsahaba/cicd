@@ -54,10 +54,10 @@ pipeline {
 
                         credentialsId: '',
                         groupId: 'sn.ept.git.seminaire.cicd',
-                        nexusUrl: 'localhost:8081/',
+                        nexusUrl: 'localhost:8081',
                         nexusVersion: 'nexus3',
                         protocol: 'http',
-                        repository: 'repository/maven-releases',
+                        repository: 'maven-releases',
                         version: '0.0.1'
 
                 }
