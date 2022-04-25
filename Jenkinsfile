@@ -52,7 +52,7 @@ pipeline {
                         file: './target/tracking.war',
                         type: 'war']],
 
-                        credentialsId: '',
+                        credentialsId: 'nexus3',
                         groupId: 'sn.ept.git.seminaire.cicd',
                         nexusUrl: 'localhost:8081',
                         nexusVersion: 'nexus3',
