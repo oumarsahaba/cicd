@@ -109,7 +109,7 @@ pipeline {
         }
         stage('Deploy DEV') {
             options {
-                timeout(time: 0.2, unit: 'HOURS')
+                timeout(time: 1, unit: 'HOURS')
             }
             when {
                 branch 'main'
