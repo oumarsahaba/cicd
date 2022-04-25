@@ -112,7 +112,7 @@ pipeline {
                 timeout(time: 1, unit: 'HOURS')
             }
             when {
-                branch 'main'
+                branch 'develop'
             }
             steps {
                 echo 'si le build s\'effectue sur la banche main'
@@ -122,7 +122,7 @@ pipeline {
          stage('Deploy REC') {
                     
                     when {
-                        branch 'develop'
+                        branch 'main'
                     }
                     steps {
                         echo 'si le build s\'effectue sur la banche release'
