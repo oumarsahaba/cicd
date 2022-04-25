@@ -84,7 +84,7 @@ pipeline {
             always{
                     echo'envoyer notification'
                 bat 'mvn clean'
-                            emailext attachLog:true,body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test', to: 'sahabandiaye@gmail.com'
+                            emailext attachLog:true,body: 'A Test EMail', subject: 'Test', to: 'sahabandiaye@gmail.com'
 
             }
             success{
