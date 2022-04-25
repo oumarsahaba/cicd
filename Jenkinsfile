@@ -112,35 +112,40 @@ pipeline {
             }
         }
         stage('Deploy DEV') {
+        when {
+                        branch 'develop'
+                    }
             options {
-                timeout(time: 1, unit: 'HOURS')
+                timeout(time: 10, unit: 'MINUTES')
             }
-            when {
-                branch 'develop'
-            }
+
             steps {
                 echo 'si le build s\'effectue sur la banche main'
                 bat 'mvn deploy'
             }
     }
+        stage('Test deploy dev'){
+                        when {
+                            branch 'develop'
+                        }
+                        steps{
+                            echo 'Déploiment sur dev success'
+                        }
+             }
          stage('Deploy REC') {
                     
                     when {
                         branch 'main'
                     }
+                    options {
+                                    timeout(time: 10, unit: 'MINUTES')
+                                }
                     steps {
                         echo 'si le build s\'effectue sur la banche release'
                         bat 'mvn deploy'
                     }
             }
-         stage('Test deploy dev'){
-                    when {
-                        branch 'develop'
-                    }
-                    steps{
-                        echo 'tester si le déploiment dans dev s\'est bien passé'
-                    }
-         }
+
          stage('Test deploy rec'){
                     when {
                         branch 'release'
@@ -154,20 +159,20 @@ pipeline {
          post {
             always{
                     bat 'mvn clean'
-                    echo'envoyer notification'
+                    emailext   attachLog:true body: 'Votre pipiline du projet a été lancé', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
             success{
-                    echo 'envoyer notification'
+                    emailext   attachLog:true body: 'Build success', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
             changed{
-                    echo'envoyer notification'
+                    emailext   attachLog:true body: 'Build changed', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
 
             unstable{
-                    echo'envoyer notification'
+                    emailext   attachLog:true body: 'Unstable build', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
             failure{
-                    echo'envoyer notification'
+                    emailext   attachLog:true body: 'Build failed', subject: 'Build', to: 'ndiayeoumarsahaba@ept.sn'
             }
 
 
