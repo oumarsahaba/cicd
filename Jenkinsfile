@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'
-        jdk 'java11'
+        maven 'maven'
+        jdk 'java'
     }
 
     environment {
@@ -46,7 +46,11 @@ pipeline {
                     
                        
                         bat "mvn install -DskipTests"
-                       nexusArtifactUploader artifacts: [[artifactId: 'tracking', classifier: '', file: 'target/tracking-0.0.1.war', type: 'war']], credentialsId: '', groupId: 'sn.ept.git.seminaire.cicd', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://localhost:8081/repository/maven-releases/', version: '0.0.1'
+                       nexusArtifactUploader artifacts:
+                        [[artifactId: 'tracking',
+                        classifier: '', f
+                        ile: 'target/tracking-0.0.1.war',
+                        type: 'war']], credentialsId: '', groupId: 'sn.ept.git.seminaire.cicd', nexusUrl: 'localhost:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://localhost:8081/repository/maven-releases/', version: '0.0.1'
 
                 }
                 }
