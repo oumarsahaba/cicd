@@ -91,6 +91,19 @@ pipeline {
                 }
                 }
         }
+
+        stage ("SonarQube analysis") {
+   steps {
+      withSonarQubeEnv('SonarQube') {
+         bat "C:\sonarqube-9.4.0.54424\sonarqube-9.4.0.54424\bin\windows-x86-64"   
+      }
+
+      def qualitygate = waitForQualityGate()
+      if (qualitygate.status != "OK") {
+         error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
+      }
+   }
+}
         stage('Paralel'){
             parallel{
        
