@@ -10,7 +10,7 @@
     </parent>
     <groupId>sn.ept.git.seminaire.cicd</groupId>
     <artifactId>tracking</artifactId>
-    <version>1.0.0</version>
+    <version></version>
     <packaging>war</packaging>
     <name>tracking</name>
     <description>Projet de tracking d'evenements</description>
