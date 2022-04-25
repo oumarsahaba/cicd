@@ -97,18 +97,21 @@ pipeline {
             parallel{
        
         
-        stage('Quality gate') {
+        stage('SonarQube Analysis') {
             steps {
                 echo 'analyse sonar..'
                 bat 'mvn sonar:sonar -Dsonar.login=ea0ff3152d936b3f2f760068834bdd7bbc323ebc'
             }
         }
-        stage('Check Quality gate') {
-            steps {
-                echo 'tester si le résultat passe le seuil....'
-                waitForQualityGate abortPipeline: true
-            }
+        stage('Quality gate') {
+            timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
+    def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+    if (qg.status != 'OK') {
+        error "Pipeline aborted due to quality gate failure: ${qg.status}"
+    }
+  }
         }
+        
         stage('Deploy DEV') {
             options {
                 timeout(time: 1, unit: 'HOURS')
