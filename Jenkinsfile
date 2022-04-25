@@ -99,8 +99,7 @@ pipeline {
         
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('My SonarQube Server') {
-                echo 'analyse sonar..'
+                withSonarQubeEnv('sonar') {
                 bat 'mvn sonar:sonar -Dsonar.login=ea0ff3152d936b3f2f760068834bdd7bbc323ebc'
             }
             }
